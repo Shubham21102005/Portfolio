@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import { RevealOnScroll } from "../RevealOnScroll";
 
 export const Home = () => {
+  useEffect(() => {
+    console.clear(); // optional, clears previous logs
+    console.log("👋 Welcome to my portfolio!");
+    console.log("🧑‍💻 Name: Shubham Kumar");
+    console.log("💻 Role: Full-Stack Developer");
+    console.log("⚡ Skills: JavaScript | React | Node.js | Express | MongoDB | TailwindCSS");
+    console.log("🎯 Mission: Build clean, scalable web apps with great UX.");
+    console.log("%cThanks for visiting! 🚀", "color: cyan; font-weight: bold; font-size: 16px;");
+  }, []);
+
   return (
     <section
       id="home"

@@ -6,9 +6,10 @@ export const Home = () => {
     console.clear(); // optional, clears previous logs
     console.log("👋 Welcome to my portfolio!");
     console.log("🧑‍💻 Name: Shubham Kumar");
-    console.log("💻 Role: Full-Stack Developer");
-    console.log("⚡ Skills: JavaScript | React | Node.js | Express | MongoDB | TailwindCSS");
-    console.log("🎯 Mission: Build clean, scalable web apps with great UX.");
+    console.log("💻 Role: AI/ML Engineering Student & Full-Stack Developer");
+    console.log("⚡ Skills: TypeScript | Python | React | Next.js | Node.js | FastAPI | PostgreSQL | MongoDB");
+    console.log("🤖 AI/ML: RAG Pipelines | Vector Databases | LangChain | Embeddings");
+    console.log("🎯 Mission: Building intelligent, scalable systems with clean, reliable code.");
     console.log("%cThanks for visiting! 🚀", "color: cyan; font-weight: bold; font-size: 16px;");
   }, []);
 
@@ -24,9 +25,10 @@ export const Home = () => {
           </h1>
 
           <p className="tex-gray-400 text-lg mb-8 max-w-lg mx-auto">
-            I’m a full-stack developer who loves crafting clean, scalable web
-            applications. My goal is to build solutions that offer both
-            exceptional performance and a delightful user experience.
+            AI/ML engineering student with strong full-stack skills. I enjoy building
+            intelligent, scalable systems—from real-time apps to RAG-based developer tools.
+            Passionate about backend engineering, developer experience, and solving practical
+            problems with clean, reliable code.
           </p>
           <div className="flex justify-center space-x-4">
             <a

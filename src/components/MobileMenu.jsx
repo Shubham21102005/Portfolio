@@ -1,10 +1,9 @@
 export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
   const links = [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
-    { href: "#achievements", label: "Achievements" },
     { href: "#contact", label: "Contact" },
   ];
 

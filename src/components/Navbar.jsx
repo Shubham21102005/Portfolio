@@ -1,70 +1,61 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const Navbar = ({ menuOpen, setMenuOpen }) => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
+
+  const links = [
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#experience", label: "Experience" },
+    { href: "#projects", label: "Projects" },
+    { href: "#achievements", label: "Achievements" },
+    { href: "#contact", label: "Contact" },
+  ];
+
   return (
-    <nav className="fixed top-0 w-full z-40 bg-[rgba(10, 10, 10, 0.8)] backdrop-blur-lg border-b border-white/10 shadow-lg">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <a href="#home" className="font-mono text-xl font-bold text-white">
-            {" "}
-            Shubham<span className="text-blue-500">Kumar</span>{" "}
-          </a>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
+        scrolled ? "bg-black/80 backdrop-blur-lg border-b border-zinc-800" : ""
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#home" className="text-xl font-bold">
+          SK.
+        </a>
 
-          <div
-            className="w-7 h-5 relative cursor-pointer z-40 md:hidden"
-            onClick={() => setMenuOpen((prev) => !prev)}
-          >
-            &#9776;
-          </div>
-
-          <div className="hidden md:flex items-center space-x-8">
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
             <a
-              href="#home"
-              className="text-gray-300 hove:text-white transition-colors"
+              key={link.href}
+              href={link.href}
+              className="text-sm text-zinc-400 hover:text-white transition-colors"
             >
-              {" "}
-              Home
+              {link.label}
             </a>
-            <a
-              href="#about"
-              className="text-gray-300 hove:text-white transition-colors"
-            >
-              {" "}
-              About{" "}
-            </a>
-            <a
-              href="#experience"
-              className="text-gray-300 hove:text-white transition-colors"
-            >
-              {" "}
-              Experience{" "}
-            </a>
-            <a
-              href="#projects"
-              className="text-gray-300 hove:text-white transition-colors"
-            >
-              {" "}
-              Projects{" "}
-            </a>
-            <a
-              href="#achievements"
-              className="text-gray-300 hove:text-white transition-colors"
-            >
-              {" "}
-              Achievements{" "}
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-300 hove:text-white transition-colors"
-            >
-              {" "}
-              Contact{" "}
-            </a>
-          </div>
+          ))}
         </div>
+
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden w-8 h-8 flex flex-col justify-center gap-1.5"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`w-full h-0.5 bg-current transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`w-full h-0.5 bg-current transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`w-full h-0.5 bg-current transition-transform ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+        </button>
       </div>
     </nav>
   );

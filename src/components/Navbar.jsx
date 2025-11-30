@@ -15,9 +15,10 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
 
   const links = [
     { href: "#home", label: "Home" },
-    { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
     { href: "#projects", label: "Projects" },
+    { href: "#skills", label: "Skills" },
+
     { href: "#contact", label: "Contact" },
   ];
 
@@ -51,9 +52,21 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`w-full h-0.5 bg-current transition-transform ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`w-full h-0.5 bg-current transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`w-full h-0.5 bg-current transition-transform ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span
+            className={`w-full h-0.5 bg-current transition-transform ${
+              menuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <span
+            className={`w-full h-0.5 bg-current transition-opacity ${
+              menuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`w-full h-0.5 bg-current transition-transform ${
+              menuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
         </button>
       </div>
     </nav>
